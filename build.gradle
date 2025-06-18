@@ -44,8 +44,8 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	// MapStruct
-	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
 
 	// Spring GraphQL
 	implementation 'org.springframework.boot:spring-boot-starter-graphql'
@@ -57,6 +57,7 @@ dependencies {
 	testImplementation 'org.mockito:mockito-core:5.11.0'
 	testImplementation 'io.cucumber:cucumber-java:7.15.0'
 	testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.15.0'
+	testImplementation "org.junit.jupiter:junit-jupiter:5.10.0"
 }
 
 dependencyManagement {

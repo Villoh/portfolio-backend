@@ -1,0 +1,65 @@
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  application:
+    name: portfolio-backend
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+# Uncomment the datasource section if you want to connect to a database
+#  datasource:
+#    url: jdbc:postgresql://postgres:5432/portfolio
+#    username: postgres
+#    password: postgres
+#    driver-class-name: org.postgresql.Driver
+
+# Uncomment the following section if you want to use Kafka
+#  kafka:
+#    bootstrap-servers: kafka:9092
+
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    prometheus:
+      enabled: true
+
+springdoc:
+  info:
+    title: Villoh's Portfolio Backend
+    description: API for Portfolio Backend
+    version: 1.0.0
+    base-package: dev.villoh.portfolio.backend
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    display-request-duration: true
+  api-docs:
+    path: /v3/api-docs
+
+# CORS global config (si lo necesitas)
+cors:
+  allowed-origins: "http://localhost:3000"
+  allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
