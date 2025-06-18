@@ -8,6 +8,6 @@ public class RootRestController {
 
     @GetMapping("/")
     public String index() {
-        return "API Portfolio Backend is running 👨💻";
+        return "API Portfolio Backend is running";
     }
 }
