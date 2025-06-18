@@ -2,6 +2,7 @@ FROM openjdk:21-jdk-slim AS build
 LABEL authors="villoh"
 WORKDIR /app
 COPY . .
+RUN chmod +x gradlew
 RUN ./gradlew clean bootJar --no-daemon
 
 FROM openjdk:21-jdk-slim
