@@ -1,11 +1,11 @@
 package dev.villoh.portfolio.backend.application;
 
-import dev.villoh.portfolio.backend.application.dto.GreetingUserDTO;
+import dev.villoh.portfolio.backend.domain.Greeting;
 
 /**
  * Interface for greeting services.
  */
 public interface GreetingService {
-    GreetingUserDTO getGreeting(String name);
+    Greeting getGreeting(String name);
 }
 

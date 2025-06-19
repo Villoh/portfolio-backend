@@ -1,7 +1,7 @@
 package dev.villoh.portfolio.backend.infrastructure.rest;
 
 import dev.villoh.portfolio.backend.application.GreetingService;
-import dev.villoh.portfolio.backend.application.dto.GreetingUserDTO;
+import dev.villoh.portfolio.backend.domain.Greeting;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -27,7 +27,7 @@ class GreetingRestControllerTest {
         // Mock the service response
         String expectedGreeting = "Hello from backend!";
         when(greetingService.getGreeting("Mikel"))
-                .thenReturn(new GreetingUserDTO("Mikel", expectedGreeting));
+                .thenReturn(new Greeting(0L, "Mikel", expectedGreeting));
 
         // Perform the request and verify the response
         mockMvc.perform(get("/api/greetings/{name}", "Mikel"))

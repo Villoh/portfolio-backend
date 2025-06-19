@@ -1,8 +1,8 @@
 package dev.villoh.portfolio.backend.application;
 
-import dev.villoh.portfolio.backend.application.dto.GreetingUserDTO;
-import dev.villoh.portfolio.backend.application.mapper.GreetingMapper;
 import dev.villoh.portfolio.backend.application.mapper.GreetingMapperImpl;
+import dev.villoh.portfolio.backend.domain.Greeting;
+import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,7 +38,7 @@ class GreetingServiceImplTest {
     @Test
     void getGreeting_shouldReturnGreetingWithCorrectIdAndMessage() {
         String name = "Mikel";
-        GreetingUserDTO greeting = greetingService.getGreeting(name);
+        Greeting greeting = greetingService.getGreeting(name);
         assertNotNull(greeting);
         assertEquals(name, greeting.getName());
         assertTrue(greeting.getMessage().contains("Hello, Mikel!"));

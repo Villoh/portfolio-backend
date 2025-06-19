@@ -1,4 +1,4 @@
-package dev.villoh.portfolio.backend.application.dto;
+package dev.villoh.portfolio.backend.infrastructure.rest.dto;
 
 import lombok.Data;
 

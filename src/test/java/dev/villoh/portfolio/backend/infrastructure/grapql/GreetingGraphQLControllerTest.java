@@ -2,8 +2,8 @@ package dev.villoh.portfolio.backend.infrastructure.grapql;
 
 import dev.villoh.portfolio.backend.application.GreetingService;
 import dev.villoh.portfolio.backend.application.GreetingServiceImpl;
-import dev.villoh.portfolio.backend.application.dto.GreetingUserDTO;
-import dev.villoh.portfolio.backend.application.mapper.GreetingMapper;
+import dev.villoh.portfolio.backend.domain.Greeting;
+import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,7 +36,7 @@ class GreetingGraphQLControllerTest {
     void greetingQuery_returnsGreetingMessage() {
         // Arrange
         Mockito.when(greetingService.getGreeting("Mikel"))
-                .thenReturn(new GreetingUserDTO("Mikel", "Hello, Mikel!"));
+                .thenReturn(new Greeting(0L, "Mikel", "Hello, Mikel!"));
         // Act & Assert
         graphQlTester.document("query { greeting(name: \"Mikel\") }")
                 .execute()

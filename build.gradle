@@ -83,6 +83,11 @@ protobuf {
 	}
 }
 
-tasks.named('test') {
+tasks.withType(Test).configureEach {
 	useJUnitPlatform()
+	testLogging {
+		exceptionFormat "full"
+		events "started", "skipped", "passed", "failed"
+		showStandardStreams true
+	}
 }
