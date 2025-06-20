@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.infrastructure.rest;
 
-import dev.villoh.portfolio.backend.application.GreetingService;
+import dev.villoh.portfolio.backend.application.greeting.GreetingService;
 import dev.villoh.portfolio.backend.domain.Greeting;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

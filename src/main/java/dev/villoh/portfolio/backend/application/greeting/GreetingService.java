@@ -1,4 +1,4 @@
-package dev.villoh.portfolio.backend.application;
+package dev.villoh.portfolio.backend.application.greeting;
 
 import dev.villoh.portfolio.backend.domain.Greeting;
 

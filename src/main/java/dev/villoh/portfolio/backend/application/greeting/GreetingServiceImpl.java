@@ -1,4 +1,4 @@
-package dev.villoh.portfolio.backend.application;
+package dev.villoh.portfolio.backend.application.greeting;
 
 import dev.villoh.portfolio.backend.domain.Greeting;
 import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
@@ -17,9 +17,7 @@ public class GreetingServiceImpl implements GreetingService {
     @Override
     public Greeting getGreeting(String name) {
         // Example implementation, in a real case a repository would be queried
-        Greeting greeting = new Greeting(0L, name, "Hello, " + name + "!");
-        // Convert the Greeting to a GreetingUserDTO
-        return greeting;
+        return new Greeting(0L, name, "Hello, " + name + "!");
     }
 }
 

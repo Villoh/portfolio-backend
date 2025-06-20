@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.infrastructure.rest;
 
-import dev.villoh.portfolio.backend.application.AboutMeService;
+import dev.villoh.portfolio.backend.application.aboutme.AboutMeService;
 import dev.villoh.portfolio.backend.infrastructure.rest.dto.AboutMeDTO;
 import dev.villoh.portfolio.backend.infrastructure.rest.mapper.AboutMeMapper;
 import io.swagger.v3.oas.annotations.Operation;

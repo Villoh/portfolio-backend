@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.infrastructure.grapql;
 
-import dev.villoh.portfolio.backend.application.GreetingService;
+import dev.villoh.portfolio.backend.application.greeting.GreetingService;
 import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;

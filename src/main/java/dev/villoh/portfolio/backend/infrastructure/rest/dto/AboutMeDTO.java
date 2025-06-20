@@ -1,12 +1,17 @@
 package dev.villoh.portfolio.backend.infrastructure.rest.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 /**
- * DTO para exponer la información de AboutMe por REST.
+ * DTO for transferring personal information about the portfolio owner.
  */
+@Data
+@AllArgsConstructor
 public class AboutMeDTO {
-    private String name;
-    private String title;
-    private String summary;
+    private final String name;
+    private final String title;
+    private final String summary;
     // Getters, setters, constructor
     // ...
 }

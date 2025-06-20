@@ -1,7 +1,7 @@
 package dev.villoh.portfolio.backend.infrastructure.grapql;
 
-import dev.villoh.portfolio.backend.application.GreetingService;
-import dev.villoh.portfolio.backend.application.GreetingServiceImpl;
+import dev.villoh.portfolio.backend.application.greeting.GreetingService;
+import dev.villoh.portfolio.backend.application.greeting.GreetingServiceImpl;
 import dev.villoh.portfolio.backend.domain.Greeting;
 import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
 import org.junit.jupiter.api.BeforeEach;

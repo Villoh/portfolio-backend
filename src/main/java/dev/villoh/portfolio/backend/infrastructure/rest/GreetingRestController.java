@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.infrastructure.rest;
 
-import dev.villoh.portfolio.backend.application.GreetingService;
+import dev.villoh.portfolio.backend.application.greeting.GreetingService;
 import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Entidad de dominio que representa la información personal para el portfolio.
+ * Domain entity representing personal information for the portfolio.
  */
 @Data
 @AllArgsConstructor
