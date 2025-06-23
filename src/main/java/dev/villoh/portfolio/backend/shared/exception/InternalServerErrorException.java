@@ -20,4 +20,13 @@ public class InternalServerErrorException extends GenericException {
     public InternalServerErrorException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    /**
+     * Constructs a new instance of InternalServerErrorException with the specified success status, message, and cause.
+     *
+     * @param message  the error message
+     */
+    public InternalServerErrorException(String message) {
+        super(message);
+    }
 }

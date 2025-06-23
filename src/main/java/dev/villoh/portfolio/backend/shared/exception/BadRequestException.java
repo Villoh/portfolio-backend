@@ -18,4 +18,13 @@ public class BadRequestException extends GenericException {
     public BadRequestException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    /**
+     * Constructs a new instance of BadRequestException with the specified success status, message, and cause.
+     *
+     * @param message  the error message
+     */
+    public BadRequestException(String message) {
+        super(message);
+    }
 }

@@ -11,9 +11,6 @@ import lombok.Getter;
  */
 @Getter
 public class GenericException extends RuntimeException {
-    private final String message;
-    private final Throwable cause;
-
     /**
      * Constructs a new instance of this class with the specified success flag, message, and cause.
      *
@@ -21,8 +18,15 @@ public class GenericException extends RuntimeException {
      * @param cause   the throwable that caused this exception
      */
     public GenericException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    /**
+     * Constructs a new instance of this class with the specified success flag, message, and cause.
+     *
+     * @param message the message describing the exception
+     */
+    public GenericException(String message) {
         super(message);
-        this.message = message;
-        this.cause = cause;
     }
 }

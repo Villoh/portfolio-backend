@@ -5,8 +5,7 @@ import dev.villoh.portfolio.backend.domain.port.RendererPort;
 import dev.villoh.portfolio.backend.shared.exception.InternalServerErrorException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -19,8 +18,8 @@ import java.util.Map;
  */
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ContactMessageSenderMail implements ContactMessageSender {
-    private static final Logger logger = LoggerFactory.getLogger(ContactMessageSenderMail.class);
     private final JavaMailSender mailSender;
     private final RendererPort renderer;
 
@@ -43,7 +42,7 @@ public class ContactMessageSenderMail implements ContactMessageSender {
             helper.setSubject("Mensaje de contacto del portfolio de " + message.getName());
             helper.setText(htmlContent, true); // true = isHtml
             mailSender.send(mimeMessage);
-            logger.info("Mensaje de contacto enviado: {}", message);
+            log.info("Mensaje de contacto enviado: {}", message);
         } catch (Exception e) {
             throw new InternalServerErrorException("Error sending contact message: " + e.getMessage(), e);
         }

@@ -1,12 +1,18 @@
-server:
-  port: 8080
-  error:
-    whitelabel:
-      enabled: false
+#server:
+#  port: 8080
+#  error:
+#    whitelabel:
+#      enabled: false
 
 spring:
   application:
     name: portfolio-backend
+
+  grpc:
+    server:
+      port: 9090   # gRPC port
+      servlet:
+        enabled: false
 
   jpa:
     hibernate:

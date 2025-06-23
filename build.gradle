@@ -72,16 +72,19 @@ dependencyManagement {
 
 protobuf {
 	protoc {
-		artifact = "com.google.protobuf:protoc:3.25.3"
+		artifact = "com.google.protobuf:protoc:3.25.5"
 	}
 	plugins {
 		grpc {
-			artifact = "io.grpc:protoc-gen-grpc-java:1.62.2"
+			artifact = "io.grpc:protoc-gen-grpc-java:1.73.0"
 		}
 	}
 	generateProtoTasks {
 		all()*.plugins {
-			grpc {}
+			grpc {
+				option 'jakarta_omit'
+				option '@generated=omit'
+			}
 		}
 	}
 }
