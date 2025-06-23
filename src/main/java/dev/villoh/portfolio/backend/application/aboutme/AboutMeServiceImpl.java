@@ -1,21 +1,30 @@
 package dev.villoh.portfolio.backend.application.aboutme;
 
 import dev.villoh.portfolio.backend.domain.AboutMe;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.Locale;
 
 /**
  * AboutMeServiceImpl es la implementación del servicio que proporciona
  */
 @Service
 public class AboutMeServiceImpl implements AboutMeService {
-    private static final String NAME = "Miguel Villoh";
-    private static final String TITLE = "Senior Backend Engineer";
-    private static final String DESCRIPTION = "Apasionado por el diseño de arquitecturas limpias y escalables.";
-    private static final String EMAIL = "miguel@villoh.dev";
+    private final MessageSource messageSource;
+    private static final String EMAIL = "mikel@htet.dev";
+
+    public AboutMeServiceImpl(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
 
     @Override
-    public AboutMe getAboutMe() {
-        // Use constants for the about me data
-        return new AboutMe(NAME, TITLE, DESCRIPTION, EMAIL);
+    public AboutMe getAboutMe(String language) {
+        Locale locale = language != null ? Locale.forLanguageTag(language) : LocaleContextHolder.getLocale();
+        String name = messageSource.getMessage("aboutme.name", null, locale);
+        String title = messageSource.getMessage("aboutme.title", null, locale);
+        String summary = messageSource.getMessage("aboutme.summary", null, locale);
+        return new AboutMe(name, title, summary, EMAIL);
     }
 }

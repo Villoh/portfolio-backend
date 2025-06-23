@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,12 +24,13 @@ public class AboutMeRestController {
         this.aboutMeMapper = aboutMeMapper;
     }
 
-    @Operation(summary = "Retrieve personal information", responses = {
+    @Operation(summary = "Retrieve personal information",
+        description = "Returns personal information localized to the requested language. Available languages: en (English), es (Spanish). Use the 'lang' query parameter to select the language.",
+        responses = {
             @ApiResponse(responseCode = "200", description = "Information retrieved successfully"),
     })
     @GetMapping
-    public AboutMeDTO getAboutMe() {
-        return aboutMeMapper.toDto(aboutMeService.getAboutMe());
+    public AboutMeDTO getAboutMe(@RequestParam(value = "lang", required = false) String language) {
+        return aboutMeMapper.toDto(aboutMeService.getAboutMe(language));
     }
 }
-

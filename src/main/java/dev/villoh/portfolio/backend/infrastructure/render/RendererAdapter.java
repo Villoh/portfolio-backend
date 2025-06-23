@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.infrastructure.render;
 
-import dev.villoh.portfolio.backend.domain.port.render.TemplateRendererPort;
+import dev.villoh.portfolio.backend.domain.port.RendererPort;
 import lombok.SneakyThrows;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 @Component
-public class TemplateRendererAdapter implements TemplateRendererPort {
+public class RendererAdapter implements RendererPort {
 
     @Override
     @SneakyThrows

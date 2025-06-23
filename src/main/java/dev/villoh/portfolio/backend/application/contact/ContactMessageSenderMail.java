@@ -1,7 +1,7 @@
 package dev.villoh.portfolio.backend.application.contact;
 
-import dev.villoh.portfolio.backend.application.render.RendererServiceService;
 import dev.villoh.portfolio.backend.domain.ContactMessage;
+import dev.villoh.portfolio.backend.domain.port.RendererPort;
 import dev.villoh.portfolio.backend.shared.exception.InternalServerErrorException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.Map;
 public class ContactMessageSenderMail implements ContactMessageSender {
     private static final Logger logger = LoggerFactory.getLogger(ContactMessageSenderMail.class);
     private final JavaMailSender mailSender;
-    private final RendererServiceService rendererService;
+    private final RendererPort renderer;
 
     @Value("${mail.username}")
     private String recipientEmail; // Email address to send contact messages to
@@ -31,7 +31,7 @@ public class ContactMessageSenderMail implements ContactMessageSender {
     public void send(ContactMessage message) {
         try {
             // Load HTML template
-            String htmlContent = rendererService.render("templates/contact-message-template.html", Map.of(
+            String htmlContent = renderer.render("templates/contact-message-template.html", Map.of(
                 "name", message.getName(),
                 "email", message.getEmail(),
                 "message", message.getMessage()

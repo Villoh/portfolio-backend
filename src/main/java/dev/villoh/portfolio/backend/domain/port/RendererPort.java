@@ -1,7 +1,7 @@
-package dev.villoh.portfolio.backend.domain.port.render;
+package dev.villoh.portfolio.backend.domain.port;
 
 import java.util.Map;
 
-public interface TemplateRendererPort {
+public interface RendererPort {
     String render(String templatePath, Map<String, String> placeholders);
 }
