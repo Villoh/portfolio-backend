@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.application.aboutme;
 
-import dev.villoh.portfolio.backend.domain.AboutMe;
+import dev.villoh.portfolio.backend.domain.model.AboutMe;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;

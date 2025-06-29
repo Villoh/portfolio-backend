@@ -1,7 +1,7 @@
 package dev.villoh.portfolio.backend.application.greeting;
 
-import dev.villoh.portfolio.backend.domain.Greeting;
-import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
+import dev.villoh.portfolio.backend.domain.model.Greeting;
+import dev.villoh.portfolio.backend.infrastructure.adapter.in.rest.mapper.GreetingMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class GreetingServiceImpl implements GreetingService {
     @Override
     public Greeting getGreeting(String name) {
         // Example implementation, in a real case a repository would be queried
-        return new Greeting(0L, name, "Hello, " + name + "!");
+        return new Greeting(name, "Hello, " + name + "!");
     }
 }
 

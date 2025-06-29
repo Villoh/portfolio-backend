@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.shared.config;
 
-import dev.villoh.portfolio.backend.infrastructure.websocket.GreetingWebSocketHandler;
+import dev.villoh.portfolio.backend.infrastructure.adapter.in.websocket.GreetingWebSocketHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;

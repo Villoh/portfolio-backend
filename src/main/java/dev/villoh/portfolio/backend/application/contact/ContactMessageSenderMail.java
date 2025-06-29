@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.application.contact;
 
-import dev.villoh.portfolio.backend.domain.ContactMessage;
+import dev.villoh.portfolio.backend.domain.model.ContactMessage;
 import dev.villoh.portfolio.backend.domain.port.RendererPort;
 import dev.villoh.portfolio.backend.shared.exception.InternalServerErrorException;
 import jakarta.mail.internet.MimeMessage;

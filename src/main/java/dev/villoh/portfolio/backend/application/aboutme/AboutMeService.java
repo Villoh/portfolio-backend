@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.application.aboutme;
 
-import dev.villoh.portfolio.backend.domain.AboutMe;
+import dev.villoh.portfolio.backend.domain.model.AboutMe;
 
 /**
  * Service interface for retrieving personal information for the portfolio.

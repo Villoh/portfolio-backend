@@ -1,8 +1,8 @@
 package dev.villoh.portfolio.backend.application;
 
 import dev.villoh.portfolio.backend.application.greeting.GreetingServiceImpl;
-import dev.villoh.portfolio.backend.domain.Greeting;
-import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapper;
+import dev.villoh.portfolio.backend.domain.model.Greeting;
+import dev.villoh.portfolio.backend.infrastructure.adapter.in.rest.mapper.GreetingMapper;
 import dev.villoh.portfolio.backend.infrastructure.rest.mapper.GreetingMapperImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

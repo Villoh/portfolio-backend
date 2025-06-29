@@ -1,6 +1,6 @@
 package dev.villoh.portfolio.backend.application.greeting;
 
-import dev.villoh.portfolio.backend.domain.Greeting;
+import dev.villoh.portfolio.backend.domain.model.Greeting;
 
 /**
  * Interface for greeting services.
