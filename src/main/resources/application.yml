@@ -1,12 +1,18 @@
-server:
-  port: 8080
-  error:
-    whitelabel:
-      enabled: false
+#server:
+#  port: 8080
+#  error:
+#    whitelabel:
+#      enabled: false
 
 spring:
   application:
     name: portfolio-backend
+
+  grpc:
+    server:
+      port: 9090   # gRPC port
+      servlet:
+        enabled: false
 
   jpa:
     hibernate:
@@ -17,6 +23,18 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
+
+  messages:
+    basename: messages
+    encoding: UTF-8
+
+mail:
+  host: ${MAIL_HOST:smtp.example.com}
+  port: ${MAIL_PORT:587}
+  username: ${MAIL_USERNAME:your@email.com}
+  password: ${MAIL_PASSWORD:yourpassword}
+  auth: true
+  starttls: true
 
 # Uncomment the datasource section if you want to connect to a database
 #  datasource:

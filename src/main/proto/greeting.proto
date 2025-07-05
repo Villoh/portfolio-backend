@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "dev.villoh.portfolio.backend.proto";
+option java_outer_classname = "GreetingProto";
+
+package greeting;
+
+// The Greeting service definition.
+service GreetingService {
+  // Sends a greeting
+  rpc Greet (GreetRequest) returns (GreetResponse);
+}
+
+// The request message containing the user's name.
+message GreetRequest {
+  string name = 1;
+}
+
+// The response message containing the greeting.
+message GreetResponse {
+  string message = 1;
+}
+

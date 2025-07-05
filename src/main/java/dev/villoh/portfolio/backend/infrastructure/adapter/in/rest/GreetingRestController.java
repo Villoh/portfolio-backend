@@ -1,6 +1,7 @@
-package dev.villoh.portfolio.backend.infrastructure.rest;
+package dev.villoh.portfolio.backend.infrastructure.adapter.in.rest;
 
-import dev.villoh.portfolio.backend.application.GreetingService;
+import dev.villoh.portfolio.backend.application.greeting.GreetingService;
+import dev.villoh.portfolio.backend.infrastructure.adapter.in.rest.mapper.GreetingMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -18,8 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class GreetingRestController {
     private final GreetingService greetingService;
-
-
+    private final GreetingMapper greetingMapper;
     /**
      * Get a greeting by name.
      * @param name name of the person to greet
@@ -31,7 +31,7 @@ public class GreetingRestController {
     })
     @GetMapping("/{name}")
     public String getGreeting(@PathVariable String name) {
-        return greetingService.getGreeting(name).getMessage();
+        return greetingMapper.toDTO(greetingService.getGreeting(name)).getMessage();
     }
 }
 

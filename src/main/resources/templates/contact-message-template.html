@@ -1,0 +1,94 @@
+<!--
+  Elegant Contact Message Email Template
+  Color palette: Soft red (#FF6F61), light gray backgrounds, clean layout
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Message</title>
+    <style>
+        body {
+            background: #f7f7f9;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 520px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            overflow: hidden;
+        }
+        .header {
+            background: #FF6F61;
+            color: #fff;
+            padding: 32px 32px 20px 32px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0 0 8px 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        .header p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.92;
+        }
+        .content {
+            padding: 32px;
+        }
+        .content h2 {
+            color: #FF6F61;
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        .info {
+            margin: 18px 0 24px 0;
+            padding: 16px;
+            background: #fbeaea;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .footer {
+            background: #f7f7f9;
+            color: #888;
+            text-align: center;
+            font-size: 0.95rem;
+            padding: 18px 0;
+        }
+        @media (max-width: 600px) {
+            .container, .content, .header { padding: 16px !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>New Contact Message</h1>
+            <p>Someone reached out from your portfolio!</p>
+        </div>
+        <div class="content">
+            <h2>Sender Information</h2>
+            <div class="info">
+                <strong>Name:</strong> {{name}}<br>
+                <strong>Email:</strong> {{email}}
+            </div>
+            <h2>Message</h2>
+            <div class="info">
+                {{message}}
+            </div>
+        </div>
+        <div class="footer">
+            &copy; 2025 Villoh &mdash; Portfolio Backend<br>
+            This is an automated message.
+        </div>
+    </div>
+</body>
+</html>
+

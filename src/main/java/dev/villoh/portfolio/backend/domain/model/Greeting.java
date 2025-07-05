@@ -1,4 +1,4 @@
-package dev.villoh.portfolio.backend.domain;
+package dev.villoh.portfolio.backend.domain.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Greeting {
-    private final Long id;
     private final String name;
     private final String message;
 }
