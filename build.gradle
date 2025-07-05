@@ -36,7 +36,6 @@ dependencies {
 	implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
