@@ -5,7 +5,7 @@ This is the backend service for the Portfolio application. It is built with Java
 ## ✅ CI Status
 
 ![Build](https://github.com/Villoh/portfolio-backend/actions/workflows/build.yml/badge.svg)
-![Tests](https://github.com/Villoh/portfolio-backend/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/Villoh/portfolio-backend/actions/workflows/tests.yml/badge.svg)
 
 ## Features
 - **About Me**: Localized personal information endpoint
