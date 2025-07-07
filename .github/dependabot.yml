@@ -10,7 +10,6 @@ updates:
       - "automated"
     commit-message:
       prefix: "chore(deps)"
-    versioning-strategy: increase
     groups:
       all-dependencies:
         patterns:
