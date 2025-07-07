@@ -7,11 +7,11 @@ import dev.villoh.portfolio.backend.infrastructure.adapter.in.rest.mapper.Contac
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,7 +32,7 @@ public class ContactMessageRestController {
     @Operation(
         summary = "Send a contact message",
         description = "Receives a contact message and sends it via email. The request body must include the sender's name, email, and message.",
-        requestBody = @RequestBody(
+        requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
             required = true,
             content = @Content(
                 schema = @Schema(implementation = ContactMessageDTO.class),
