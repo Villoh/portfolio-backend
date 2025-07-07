@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+
 
 permissions:
   contents: read
@@ -17,15 +19,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli@latest
-
       - name: Deploy using Railway CLI
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
           RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
-        run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }}
-
-      - name: Print Railway Service URL
-        run: |
-          echo $RAILWAY_SERVICE_ID
+        run: npx @railway/cli up --service ${{ secrets.RAILWAY_SERVICE_ID }}

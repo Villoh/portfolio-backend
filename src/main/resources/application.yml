@@ -1,18 +1,18 @@
-#server:
-#  port: 8080
-#  error:
-#    whitelabel:
-#      enabled: false
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false # This disables the default error page
 
 spring:
   application:
     name: portfolio-backend
 
-  grpc:
-    server:
-      port: 9090   # gRPC port
-      servlet:
-        enabled: false
+#  grpc:
+#    server:
+#      port: 8080   # gRPC port
+#      servlet:
+#        enabled: true
 
   jpa:
     hibernate:
@@ -51,24 +51,21 @@ mail:
     serialization:
       INDENT_OUTPUT: true
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  metrics:
-    export:
-      prometheus:
-        enabled: true
-  endpoint:
-    prometheus:
-      enabled: true
-
 springdoc:
   info:
-    title: Villoh's Portfolio Backend
-    description: API for Portfolio Backend
-    version: 1.0.0
+    title: "Portfolio Backend API Documentation"
+    description: |
+      This API provides a comprehensive backend for the Portfolio application, supporting multiple protocols (REST, WebSocket, SSE, GraphQL, gRPC) and offering endpoints for personal information, contact messaging, greetings, live metrics, and real-time voting. 
+      
+      Features:
+      - Localized About Me information
+      - Contact message delivery via email
+      - Personalized greetings
+      - Live system and JVM metrics
+      - Real-time voting for programming languages
+      
+      Built with Java 21, Spring Boot 3, and a hexagonal architecture for maintainability and scalability.
+    version: 1.0.1
     base-package: dev.villoh.portfolio.backend
   swagger-ui:
     path: /swagger-ui.html
@@ -81,3 +78,9 @@ springdoc:
 cors:
   allowed-origins: "http://localhost:3000"
   allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

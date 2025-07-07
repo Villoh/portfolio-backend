@@ -63,6 +63,9 @@ dependencies {
 	testImplementation libs.archunit
 	testImplementation 'io.projectreactor:reactor-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// Caffeine
+	implementation libs.caffeine
 }
 
 dependencyManagement {
