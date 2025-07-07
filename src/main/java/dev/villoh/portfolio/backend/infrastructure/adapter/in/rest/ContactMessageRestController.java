@@ -5,6 +5,8 @@ import dev.villoh.portfolio.backend.domain.model.ContactMessage;
 import dev.villoh.portfolio.backend.infrastructure.adapter.in.rest.dto.ContactMessageDTO;
 import dev.villoh.portfolio.backend.infrastructure.adapter.in.rest.mapper.ContactMessageMapper;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +29,22 @@ public class ContactMessageRestController {
         this.contactMessageMapper = contactMessageMapper;
     }
 
-    @Operation(summary = "Send message", responses = {
+    @Operation(
+        summary = "Send a contact message",
+        description = "Receives a contact message and sends it via email. The request body must include the sender's name, email, and message.",
+        requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+            required = true,
+            content = @Content(
+                schema = @Schema(implementation = ContactMessageDTO.class),
+                mediaType = "application/json"
+            )
+        ),
+        responses = {
             @ApiResponse(responseCode = "200", description = "Message sent successfully"),
-    })
+            @ApiResponse(responseCode = "400", description = "Invalid input", content = @Content),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+        }
+    )
     @PostMapping
     public ResponseEntity<Void> sendContactMessage(@RequestBody ContactMessageDTO contactMessageDTO) {
         ContactMessage message = contactMessageMapper.toEntity(contactMessageDTO);
@@ -37,4 +52,3 @@ public class ContactMessageRestController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
-

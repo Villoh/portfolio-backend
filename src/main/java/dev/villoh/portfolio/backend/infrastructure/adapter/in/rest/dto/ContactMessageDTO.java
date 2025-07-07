@@ -9,11 +9,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ContactMessageDTO {
-    private final String name;
-    private final String email;
-    private final String message;
-    // Getters, setters, constructor
-    // ...
+    private String name;
+    private String email;
+    private String message;
 }
-
-
