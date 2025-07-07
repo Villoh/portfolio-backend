@@ -5,7 +5,7 @@ plugins {
 	id 'com.google.protobuf' version '0.9.4'
 }
 
-group = 'dev.villoh.portfolio'
+group = 'dev.villoh.portfolio.backend'
 version = '0.0.1-SNAPSHOT'
 
 java {
@@ -26,41 +26,53 @@ repositories {
 
 ext {
 	set('springGrpcVersion', "0.8.0")
+	set('mapstructVersion', "1.6.3")
+	set('springdocVersion', "2.8.9")
+	set('mockitoVersion', "5.18.0")
+	set('cucumberVersion', "7.23.0")
+	set('junitJupiterVersion', "5.10.0")
+	set('graphqlTestVersion', "1.4.1")
+	set('archUnitVersion', "1.2.1")
 }
 
 dependencies {
+	// Spring Boot starters
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.boot:spring-boot-starter-graphql'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// Spring gRPC
 	implementation 'io.grpc:grpc-services'
 	implementation 'org.springframework.grpc:spring-grpc-server-web-spring-boot-starter'
+
+	// OpenAPI / Swagger
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
+
+	// Lombok
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.grpc:spring-grpc-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// Configuration processor
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	// MapStruct
-    implementation 'org.mapstruct:mapstruct:1.6.3'
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
-	// Spring GraphQL
-	implementation 'org.springframework.boot:spring-boot-starter-graphql'
-
-	// Spring Mail
-	implementation 'org.springframework.boot:spring-boot-starter-mail'
-
-	// OpenAPI & Swagger UI
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
-
-	// Test dependencies
-	testImplementation 'org.mockito:mockito-core:5.18.0'
-	testImplementation 'io.cucumber:cucumber-java:7.23.0'
-	testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.23.0'
-	testImplementation "org.junit.jupiter:junit-jupiter:5.10.0"
-	testImplementation("org.springframework.graphql:spring-graphql-test:1.4.1")
+	// Test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.grpc:spring-grpc-test'
+	testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+	testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+	testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+	testImplementation "org.junit.jupiter:junit-jupiter:${junitJupiterVersion}"
+	testImplementation "org.springframework.graphql:spring-graphql-test:${graphqlTestVersion}"
+	testImplementation "com.tngtech.archunit:archunit-junit5:${archUnitVersion}"
+	testImplementation 'io.projectreactor:reactor-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 dependencyManagement {
@@ -71,11 +83,11 @@ dependencyManagement {
 
 protobuf {
 	protoc {
-		artifact = "com.google.protobuf:protoc:4.31.1"
+		artifact = "com.google.protobuf:protoc"
 	}
 	plugins {
 		grpc {
-			artifact = "io.grpc:protoc-gen-grpc-java:1.73.0"
+			artifact = "io.grpc:protoc-gen-grpc-java"
 		}
 	}
 	generateProtoTasks {
@@ -95,4 +107,14 @@ tasks.withType(Test).configureEach {
 		events "started", "skipped", "passed", "failed"
 		showStandardStreams true
 	}
+}
+
+
+apply plugin: 'jacoco'
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
