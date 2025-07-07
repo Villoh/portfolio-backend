@@ -1,7 +1,6 @@
 package dev.villoh.portfolio.backend.application.greeting;
 
 import dev.villoh.portfolio.backend.domain.model.Greeting;
-import dev.villoh.portfolio.backend.infrastructure.adapter.in.rest.mapper.GreetingMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class GreetingServiceImpl implements GreetingService {
-
-    private final GreetingMapper greetingMapper;
 
     @Override
     public Greeting getGreeting(String name) {

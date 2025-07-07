@@ -1,12 +1,32 @@
 version: 2
+
 updates:
   - package-ecosystem: "gradle"
-    directory: "/"              # Root of your project
+    directory: "/"  # Root directory of your build.gradle
     schedule:
-      interval: "weekly"        # Options: daily, weekly, monthly
+      interval: "weekly"
     open-pull-requests-limit: 5
-    commit-message:
-      prefix: "chore(deps)"
     labels:
       - "dependencies"
       - "automated"
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "gradle"
+    directory: "/gradle"  # Location of your libs.versions.toml
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "automated"
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      version-catalog:
+        patterns:
+          - "*"

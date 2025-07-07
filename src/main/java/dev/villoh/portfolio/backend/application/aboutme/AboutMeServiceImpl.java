@@ -13,7 +13,7 @@ import java.util.Locale;
 @Service
 public class AboutMeServiceImpl implements AboutMeService {
     private final MessageSource messageSource;
-    private static final String EMAIL = "mikel@htet.dev";
+    private static final String EMAIL = "";
 
     public AboutMeServiceImpl(MessageSource messageSource) {
         this.messageSource = messageSource;
