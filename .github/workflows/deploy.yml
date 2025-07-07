@@ -22,10 +22,16 @@ jobs:
           java-version: '21'
           distribution: 'zulu'
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant execute permission to Gradle
+        run: chmod +x gradlew
+
       - name: Build the app
         run: ./gradlew build --no-daemon
 
       - name: Deploy using Railway CLI
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: npx @railway/cli up --service spring-app¦¦
+        run: npx @railway/cli up --service spring-app
