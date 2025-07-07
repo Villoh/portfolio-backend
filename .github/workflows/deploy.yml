@@ -23,7 +23,9 @@ jobs:
       - name: Deploy using Railway CLI
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }}
 
       - name: Print Railway Service URL
-        run: echo "${{ secrets.RAILWAY_SERVICE_ID }}"
+        run: |
+          echo $RAILWAY_SERVICE_ID
