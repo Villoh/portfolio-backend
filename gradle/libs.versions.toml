@@ -4,10 +4,10 @@ mapstruct = "1.6.3"
 springdoc = "2.8.9"
 mockito = "5.18.0"
 cucumber = "7.23.0"
-junit = "5.10.0"
+junit = "5.13.3"
 graphql-test = "1.4.1"
-archunit = "1.2.1"
-caffeine = "3.1.8"
+archunit = "1.4.1"
+caffeine = "3.2.1"
 
 [libraries]
 mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
